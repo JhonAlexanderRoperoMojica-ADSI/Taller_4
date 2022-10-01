@@ -1,0 +1,34 @@
+body{
+    padding: 200px;
+    background-color: blueviolet;
+}
+
+*{
+    margin: auto;
+    font-family: cursive;
+}
+
+h1{
+    color: white;
+    font-size: 2em;
+}
+
+div{
+    padding: 15px;
+    text-align: center;
+    width: 50%;
+    height: 100%;
+    box-shadow: 15px 15px 20px black;
+}
+
+.btn{
+    margin: 15px;
+    font-size: 2.5em;
+    box-shadow: 10px 10px 15px black;
+}
+
+.btn:hover{
+    color: white;
+    background-color: blueviolet;
+    transition: 1s;
+}
