@@ -2,29 +2,15 @@ addEventListener("DOMContentLoaded", (e) => {
     let formulario = document.getElementById('formulario');
     formulario.addEventListener("submit", (e) => {
         e.preventDefault();
-        let estudiantes = document.getElementById("estudiantes").value;        
-        let suma = 0;
-        let maximo = 0;
-        let mininimo = 0;
+        let pago1 = 10;
+        let mes = 20;
+        
+        document.getElementById("serie").innerHTML = `El valor a pagar es: ${pago1}`;
 
-
-        for(let i = 0; i <= estudiantes; i++){
-            let calificacion = parseFloat(prompt(`Ingrese la calificacion del estudiante: ${i}`));
-
-            if(calificacion >= 1 && calificacion <= 5){
-                suma = calificacion;
-            }
-            if(calificacion >= maximo){
-                maximo = calificacion;
-            }
-            else if(mininimo >= calificacion){
-                mininimo = calificacion;
-            }
+        for(let i = 2; i <= 20; i++){
+            pago1 = pago1 * 2;
             
+            document.getElementById("serie2").innerHTML = `El mes ${i} el valor a pagar es ${pago1} peso`;
         }
-        let promedio = suma / estudiantes;  
-        alert(`el promedio de la nota es: ${promedio}`);
-        alert(`la nota más alta es: ${maximo}`);
-        alert(`la nota más baja es: ${mininimo}`);
     })
 })
