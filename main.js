@@ -2,32 +2,31 @@ addEventListener("DOMContentLoaded", (e) => {
     let formulario = document.getElementById('formulario');
     formulario.addEventListener("submit", (e) => {
         e.preventDefault();
-        let empleado = document.getElementById("empleado").value;
-        for (let i = 0; i < empleado; i++) {
-            let nombre = prompt(`Ingrese el nombre del empelado ${i}`);
-            let salirio = parseFloat(prompt(`Ingrese el salario del empleado ${nombre}`));
-            let tiempo = parseInt(prompt(`Ingrese el tiempo trabajdo en la pempresa del empleado ${nombre}`));
+        let s = 1;
+        const pi = 3.14;
 
-            if (tiempo >= 1 && tiempo < 5) {
-                let total = salirio + 100;
-                document.getElementById("serie").innerHTML = `El trabajador: ${nombre} ,Tendra un aumento de 100 mil pesos`;
-                document.getElementById("serie1").innerHTML = `El salario total es de: ${total} , mil pesos`;
+        let numero1 = parseFloat(prompt("Exponentes"))
+        let numero2 = parseFloat(prompt("Angulos en radianes"));
+
+        let x = numero2 * (180 / pi);
+        let sen = x;
+        for (i = 3; i <= numero1 + 1; i++) {
+
+            let a = 1;
+            let b = 1;
+
+            while (a <= i) {
+                b = b * a;
+                a = a + 1;
             }
-            else if (tiempo >= 5 && tiempo < 10) {
-                let total = salirio + 250;
-                document.getElementById("serie").innerHTML = `El trabajador: ${nombre} ,Tendra un aumento de 250 mil pesos`;
-                document.getElementById("serie1").innerHTML = `El salario total es de: ${total} , mil pesos`;
+            if (sig % 2 == 1) {
+                sen = sen - ((x * i) / b);
             }
-            else if(tiempo >= 10 && tiempo < 20){
-                let total = salirio + 400;
-                document.getElementById("serie").innerHTML = `El trabajador: ${nombre} ,Tendra un aumento de 400 mil pesos`;
-                document.getElementById("serie1").innerHTML = `El salario total es de: ${total} , mil pesos`;
+            else {
+                sen = sen + ((x * i) / b);
             }
-            else if (tiempo >= 20){
-                let total = salirio + 550;
-                document.getElementById("serie").innerHTML = `El trabajador: ${nombre} ,Tendra un aumento de 550 mil pesos`;
-                document.getElementById("serie1").innerHTML = `El salario total es de: ${total} , mil pesos`;
-            }   
+            s += 1;
         }
+        document.getElementById("serie").innerHTML = `el seno de ${x} es: ${sen}`;
     })
 })
