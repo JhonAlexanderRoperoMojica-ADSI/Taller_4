@@ -2,20 +2,25 @@ addEventListener("DOMContentLoaded", (e) => {
     let formulario = document.getElementById('formulario');
     formulario.addEventListener("submit", (e) => {
         e.preventDefault();
-        let cant = parseFloat(prompt("ingrese la cantida de numeros"));
-        for (i=1; i<=cant; i++){
-            let num1 = parseInt(prompt(`Ingrese el primer numero ${i}`));
-            let num2 = parseInt(prompt(`Ingrese el segundo número:`));
+        let mayor = 500000;
+        const iva1 = 0.19;
+        let cant = parseFloat(prompt("ingrese la cantida de articulos"));
+        for (i = 1; i <= cant; i++) {
+            let valor = parseInt(prompt(`Ingrese el valor del árticulo: ${i}`));
+            let unidad = parseInt(prompt(`Unidades compradas:`));
 
-            let suma = num1 + num2;
-            let resta = num1-num2;
-            let multiplicación = num1 * num2;
-            let división = num1 / num2;
+            let sub_tot = valor * unidad;
+            let iva2 = sub_tot * iva1;
+            let tot_pag = sub_tot + iva2;
 
-            document.getElementById("serie").innerHTML = `la suma es: ${suma}`;
-            document.getElementById("serie1").innerHTML = `la resta es: ${resta}`;
-            document.getElementById("serie2").innerHTML = `la multiplicación es: ${multiplicación}`;
-            document.getElementById("serie3").innerHTML = `la división es: ${división}`;
+            if (tot_pag > mayor) {
+                let des = tot_pag * 0.15;
+                let desc_tot = tot_pag - des;
+                document.getElementById("serie").innerHTML = `Su compra supero los 500.000 , El pago con IVA es: ${tot_pag} , El total a pagar es: ${desc_tot}`;
+            }
+            else {
+                document.getElementById("serie").innerHTML = `El subtotal es: ${sub_tot} , El IVA es: ${iva1} , El total a pagar es ${tot_pag}`
+            }
         }
     })
 })
