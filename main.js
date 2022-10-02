@@ -2,31 +2,20 @@ addEventListener("DOMContentLoaded", (e) => {
     let formulario = document.getElementById('formulario');
     formulario.addEventListener("submit", (e) => {
         e.preventDefault();
-        let s = 1;
-        const pi = 3.14;
+        let cant = parseFloat(prompt("ingrese la cantida de numeros"));
+        for (i=1; i<=cant; i++){
+            let num1 = parseInt(prompt(`Ingrese el primer numero ${i}`));
+            let num2 = parseInt(prompt(`Ingrese el segundo número:`));
 
-        let numero1 = parseFloat(prompt("Exponentes"))
-        let numero2 = parseFloat(prompt("Angulos en radianes"));
+            let suma = num1 + num2;
+            let resta = num1-num2;
+            let multiplicación = num1 * num2;
+            let división = num1 / num2;
 
-        let x = numero2 * (180 / pi);
-        let sen = x;
-        for (i = 3; i <= numero1 + 1; i++) {
-
-            let a = 1;
-            let b = 1;
-
-            while (a <= i) {
-                b = b * a;
-                a = a + 1;
-            }
-            if (sig % 2 == 1) {
-                sen = sen - ((x * i) / b);
-            }
-            else {
-                sen = sen + ((x * i) / b);
-            }
-            s += 1;
+            document.getElementById("serie").innerHTML = `la suma es: ${suma}`;
+            document.getElementById("serie1").innerHTML = `la resta es: ${resta}`;
+            document.getElementById("serie2").innerHTML = `la multiplicación es: ${multiplicación}`;
+            document.getElementById("serie3").innerHTML = `la división es: ${división}`;
         }
-        document.getElementById("serie").innerHTML = `el seno de ${x} es: ${sen}`;
     })
 })
